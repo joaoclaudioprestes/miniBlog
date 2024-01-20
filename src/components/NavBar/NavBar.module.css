@@ -8,8 +8,11 @@
   margin: .5rem .5rem;
   padding: 1rem;
   border-radius: 8px;
-  border: 1px solid #111;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  height: 10dvh;
 }
+
 .title {
   text-decoration: none;
   color: #111;
@@ -25,6 +28,7 @@
   display: flex;
   gap: .5rem;
   list-style: none;
+  padding: .5rem .8rem;
 }
 
 .link {

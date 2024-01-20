@@ -15,6 +15,18 @@ const NavBar = () => {
           Home
         </NavLink>
         <NavLink
+          to="/login"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
+          Entrar
+        </NavLink>
+        <NavLink
+          to="/register"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
+          Cadastrar
+        </NavLink>
+        <NavLink
           to="/about"
           className={({ isActive }) => (isActive ? styles.active : styles.link)}
         >
