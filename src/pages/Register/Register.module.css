@@ -69,3 +69,10 @@
   border: 1px solid #E34343;
   color: #E34343;
 }
+
+
+@media screen and (max-width: 468px) {
+  .register {
+    max-width: 80%;
+  }
+}
