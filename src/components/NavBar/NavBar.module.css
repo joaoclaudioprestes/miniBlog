@@ -1,0 +1,45 @@
+.nav {
+  display: flex;
+  background: #fff;
+  font-size: 1rem;
+
+  justify-content: space-between;
+  align-items: center;
+  margin: .5rem .5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #111;
+}
+.title {
+  text-decoration: none;
+  color: #111;
+}
+
+.blog {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1FDF64 !important;
+}
+
+.links_list {
+  display: flex;
+  gap: .5rem;
+  list-style: none;
+}
+
+.link {
+  padding: .1rem .4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #111;
+}
+
+
+
+.active {
+  background: #1FDF64;
+  color: #fff;
+  padding: .1rem .4rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
