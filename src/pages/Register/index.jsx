@@ -35,6 +35,12 @@ const Register = () => {
     console.log(user);
   };
 
+  useEffect(() => {
+    if (authError) {
+      setError(authError);
+    }
+  }, [authError]);
+
   return (
     <>
       <NavBar />
