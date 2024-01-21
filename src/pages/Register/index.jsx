@@ -88,7 +88,8 @@ const Register = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </label>
-          <button className={styles.btn}>Cadastrar</button>
+          {!loading && <button className={styles.btn}>Cadastrar</button>}
+          {loading && <button className={styles.btnLoading}>Carregando...</button>}
           {error && <p className={styles.error}>{error}</p>}
         </form>
       </div>

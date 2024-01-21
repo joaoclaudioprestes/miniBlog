@@ -49,13 +49,26 @@
 }
 
 .register form .btn {
-  height: 2rem;
+  height: 3rem;
   border-radius: 8px;
   outline: none;
   border: 2px solid transparent;
   cursor: pointer;
   color: #fff;
   background: #111;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.register form .btnLoading {
+  height: 3rem;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: #111;
+  background: #d6d6d6;
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;

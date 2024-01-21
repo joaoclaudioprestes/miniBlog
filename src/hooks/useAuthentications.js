@@ -1,75 +1,79 @@
-import { db } from "../firebase/config"
+import { db } from "../firebase/config";
 
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
-  signOut
-} from "firebase/auth"
+  signOut,
+} from "firebase/auth";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useAuthentication = () => {
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // cleanup
   // deal with memory leak
-  const [cancelled, setCancelled] = useState(false)
+  const [cancelled, setCancelled] = useState(false);
 
-  const auth = getAuth()
+  const auth = getAuth();
 
   function checkedIfIsCancelled() {
     if (cancelled) {
-      return
+      return;
     }
   }
 
   const creatUser = async (data) => {
-    checkedIfIsCancelled()
+    checkedIfIsCancelled();
 
-    setLoading(true)
+    setLoading(true);
 
     try {
       const { user } = await createUserWithEmailAndPassword(
         auth,
         data.email,
         data.password
-      )
+      );
 
       await updateProfile(user, {
-        displayName: data.displayName
-      })
+        displayName: data.displayName,
+      });
 
-      return user
+      setLoading(false);
+
+      return user;
     } catch (error) {
-      console.error(error.mensagem)
-      console.error(typeof error.mensagem)
+      console.error(error.mensagem);
+      console.error(typeof error.mensagem);
 
-      let systemErrorMenssage
+      let systemErrorMenssage;
 
       if (error.message.includes("Password")) {
-        systemErrorMenssage = "A senha precisa conter pelo menos 6 caracteres."
+        systemErrorMenssage = "A senha precisa conter pelo menos 6 caracteres.";
       } else if (error.message.includes("email-already")) {
-        systemErrorMenssage = "E-mail já Cadastrado!"
+        systemErrorMenssage = "E-mail já Cadastrado!";
       } else {
-        systemErrorMenssage = "Ocorreu um erro, por favor tente novamente mais tarde!"
+        systemErrorMenssage =
+          "Ocorreu um erro, por favor tente novamente mais tarde!";
       }
 
-      setError(systemErrorMenssage)
+      setLoading(true);
+      setError(systemErrorMenssage);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    return setCancelled(true)
-  }, [])
+    return setCancelled(true);
+  }, []);
 
   return {
     auth,
     creatUser,
     error,
-    loading
-  }
-}
+    loading,
+  };
+};
