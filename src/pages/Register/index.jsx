@@ -1,6 +1,4 @@
 import styles from "./Register.module.css";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
 
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentications";
@@ -19,22 +17,26 @@ const Register = () => {
 
     setError("");
 
+    // Cria um objeto com os dados de login do usuário
     const user = {
       dislayName,
       email,
       password,
     };
 
+    // Verifica se as senhas são iguais...
     if (password !== confirmPassword) {
       setError("A senhas são diferentes!");
     }
 
+    // Passa os dados para função de criar usuário
     const res = await creatUser(user);
 
     console.log(error);
     console.log(user);
   };
 
+  // Verifica a existência de erros vindos do firebase, e atualiza o setError()
   useEffect(() => {
     if (authError) {
       setError(authError);
@@ -43,7 +45,6 @@ const Register = () => {
 
   return (
     <>
-      <NavBar />
       <div className={styles.register}>
         <h1>Cadastre-se para postar</h1>
         <p>Crie seu usário e compartilhe suas histórias.</p>
@@ -56,6 +57,7 @@ const Register = () => {
               placeholder="Insira seu nome"
               value={dislayName}
               onChange={(e) => setDisplayName(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -66,6 +68,7 @@ const Register = () => {
               placeholder="Insira seu e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -76,6 +79,7 @@ const Register = () => {
               placeholder="Insira sua senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -86,14 +90,16 @@ const Register = () => {
               placeholder="Confirme a senha digitada anteriormente"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
           </label>
           {!loading && <button className={styles.btn}>Cadastrar</button>}
-          {loading && <button className={styles.btnLoading}>Carregando...</button>}
+          {loading && (
+            <button className={styles.btnLoading}>Carregando...</button>
+          )}
           {error && <p className={styles.error}>{error}</p>}
         </form>
       </div>
-      <Footer />
     </>
   );
 };
