@@ -10,7 +10,7 @@ function Footer() {
           Mini <strong>Blog</strong>
         </p>
         <p className={style.copy}>
-          Copyright © 2023 -
+          Copyright © 2023 -{" "}
           <a href="https://jprestes.vercel.app" target="_blank">
             jprestes.com
           </a>{" "}

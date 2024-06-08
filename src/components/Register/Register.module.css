@@ -70,7 +70,7 @@
   font-size: 0.9rem;
 }
 
-.message {
+.error {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,16 +78,9 @@
   width: 50vw;
   height: 3rem;
   margin-top: 1rem;
-}
-
-.message .error {
   background-color: rgb(219, 50, 50);
   font-size: 1rem;
   font-weight: 700;
-}
-
-.message .success {
-  background-color: rgb(84, 219, 50);
-  font-size: 1rem;
-  font-weight: 700;
+  border-radius: .4rem;
+  color: #fff;
 }
