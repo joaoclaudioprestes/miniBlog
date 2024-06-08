@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-family: var(--font-inter);
+}
+
+.nav {
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+
+    li {
+      a {
+        text-decoration: none;
+        color: #000;
+        font-family: var(--font-inter);
+        font-size: 1rem;
+        font-weight: 500;
+        padding: .4rem .8rem;
+        border-radius: 2rem;
+
+        &:hover {
+          background-color: #000;
+          color: #fff;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+  }
+}

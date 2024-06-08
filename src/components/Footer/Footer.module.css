@@ -1,27 +1,36 @@
 .footer {
-  width: 100%;
-  
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-family: var(--font-inter);
+}
+
+.copy {
+  font-size: 1rem;
+
+  a {
+    color: #000;
+
+    &::after {
+      color: #000;
+    }
+  }
+}
+
+.divPowered {
+  display: flex;
   align-items: center;
 
-  background: #111;
-  color: #fff;
-  height: 10dvh;
-  position: fixed;
-  bottom: 0;
-}
+  .powered {
+    font-size: 1rem;
+  }
 
-.footer h3 {
-  font-size: 1.2rem;
-}
-
-.footer p {
-  font-size: 1rem;
-}
-
-.autor {
-  color: #1FDF64;
-  font-weight: bold;
+  img {
+    width: 2.5rem;
+  }
 }
