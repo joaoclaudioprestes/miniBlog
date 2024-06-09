@@ -8,20 +8,30 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
-    const user = {
-      name,
-      email,
-      password,
-    };
+    if (password !== confirmPassword) {
+      setError("As senhas não conferem");
+      return;
+    } else {
+      const user = {
+        name,
+        email,
+        password,
+      };
 
-    console.log(user);
-    setError("Usuário cadastrado com sucesso!");
+      const response = await createUser(user);
+
+      setName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+    }
   };
 
   return (
@@ -68,6 +78,18 @@ function Register() {
                 className={style.input}
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
+              />
+            </label>
+            <label htmlFor="confirmPassword">
+              <span className={style.label}>Confirme sua senha:</span>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+                className={style.input}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={confirmPassword}
               />
             </label>
             <button type="submit" className={style.button} name="submit">
